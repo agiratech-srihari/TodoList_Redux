@@ -10,6 +10,7 @@ const todoSlice = createSlice({
   reducers: {
         saveTodo:(state,action)=>{
             state.todoList.push(action.payload)
+            return state
         },
         setCheck:(state,action)=>{
             state.todoList.map(item => {
@@ -22,12 +23,21 @@ const todoSlice = createSlice({
                     }
                 }
             })
+        },
+        deleteTodo:(state,action)=>{
+            let index = state.todoList.findIndex((ele) => ele.id === action.payload);
+            if(index !== -1) {
+                let list= [...state.todoList]
+                list.splice(index,1);
+                const todoList = Object.assign({}, state, { todoList: list })
+                return todoList;
+            }
         }
 
   }
 });
 
-export const { saveTodo,setCheck } = todoSlice.actions
+export const { saveTodo,setCheck,deleteTodo } = todoSlice.actions
 
 export const selectTodoList = state => state.todos.todoList
 

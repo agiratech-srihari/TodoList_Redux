@@ -17,6 +17,11 @@
   background-color: rgb(232, 234, 237);
 }
 
+
+.app__inputContainer{
+  display: flex;
+}
+
 .app__todoContainer{
   flex: 1;
   width: 100%;

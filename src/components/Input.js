@@ -8,7 +8,7 @@ function Input() {
 
   const addTodo=()=>{
       console.log(`adding ${input}`)
-
+        setInput('')
       dispatch(saveTodo({
           item:input,
           done:false,
