@@ -13,7 +13,7 @@ function TodoItem({ name,id,done}) {
 
     }
     const handleDelete = () => {
-      alert(id)
+      
         dispatch(deleteTodo(id))
     }
 

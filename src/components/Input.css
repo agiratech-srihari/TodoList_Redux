@@ -1,27 +1,25 @@
 .input{
-    height: 50px;
+    height: 3rem;
     width: 75%;
     border-radius: 12px;
     display: flex;
     background-color: white;
     justify-content: center;
     align-items: center;
-    margin-bottom: 6px;
+    margin-bottom: 1rem;
 }
 
 input{
     background: none;
     border: none;
-    margin-left: 12px;
+    margin-left: 1rem;
     flex: 1;
 }
 input:focus{
     outline: none;
 }
-button{
-    background-color: rgb(214, 213, 213);
-    margin-right: 8px;
-    border-radius: 10px;
-    height: 30px;
-    width: 50px;
+@media (max-width:420px){
+    .input{
+        width: 100%;
+    }
 }

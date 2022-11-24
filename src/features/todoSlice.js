@@ -29,6 +29,7 @@ const todoSlice = createSlice({
             if(index !== -1) {
                 let list= [...state.todoList]
                 list.splice(index,1);
+                console.log(list)
                 const todoList = Object.assign({}, state, { todoList: list })
                 return todoList;
             }
