@@ -8,11 +8,6 @@ import { selectTodoList } from "./features/todoSlice";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 
-// const todoList = [
-//   { item: "Working on Todo", done: false, id: 1 },
-//   { item: "Learned About Redux", done: true, id: 2 },
-// ];
-
 function App() {
   const todoList = useSelector(selectTodoList);
   const [list, setList] = useState(todoList);
@@ -23,28 +18,30 @@ function App() {
   };
 
   useEffect(() => {
+    console.log("todoList", todoList);
     if (type === 2) {
-      const comList = [];
-      todoList.filter((item) => {
-        if (item.done == true) {
-          comList.push(item);
+      const comList = todoList.filter((item) => {
+        if (item.done === true) {
+          // comList.push(item);
+          return item;
         }
-        setList(comList);
       });
+      setList(comList);
     }
     if (type === 3) {
-      const incomList = [];
-      todoList.filter((item) => {
-        if (item.done == false) {
-          incomList.push(item);
+      // const incomList = [];
+      const incomeList = todoList.filter((item) => {
+        if (item.done === false) {
+          // incomList.push(item);
+          return item;
         }
-        setList(incomList);
       });
+      setList(incomeList);
     }
     if (type === 1) {
       setList(todoList);
     }
-  }, [type, todoList]);
+  }, [type,todoList]);
 
   return (
     <div className="App">

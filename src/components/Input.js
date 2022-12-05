@@ -10,10 +10,28 @@ function Input() {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
+  const addTodoonEnter = (event) => {
+    if(event.key === 'Enter'){
+      if(input.trim()===""){
+        swal('Warning',"Enter some work to add in Todo List!","warning");
+      }else{
+        dispatch(
+          saveTodo({
+            item: input,
+            done: false,
+            id: Date.now(),
+          })
+          );
+          setInput("");
+        }
+    };
+  }
+  
+  
   const addTodo = () => {
-    console.log(`adding ${input}`);
+    // console.log(`adding ${input}`);
     if(input.trim()===""){
-      swal("enter some work to add in Todo List");
+      swal('Warning',"Enter some work to add in Todo List!","warning");
     }else{
       dispatch(
         saveTodo({
@@ -31,6 +49,7 @@ function Input() {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyPress={addTodoonEnter}
       />
       <IconButton
         style={{
@@ -42,6 +61,7 @@ function Input() {
           borderRadius: "50",
         }}
         onClick={addTodo}
+        onKeyPress={addTodoonEnter}
       >
         <AddIcon style={{ color: "black" }} />
       </IconButton>

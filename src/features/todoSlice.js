@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    todoList:[]
+    todoList:[],
 }
 
 const todoSlice = createSlice({
@@ -29,16 +29,16 @@ const todoSlice = createSlice({
             if(index !== -1) {
                 let list= [...state.todoList]
                 list.splice(index,1);
-                console.log(list)
                 const todoList = Object.assign({}, state, { todoList: list })
                 return todoList;
             }
-        }
+        },
+        
 
   }
 });
 
-export const { saveTodo,setCheck,deleteTodo } = todoSlice.actions
+export const { saveTodo,setCheck,deleteTodo,editTodo } = todoSlice.actions
 
 export const selectTodoList = state => state.todos.todoList
 

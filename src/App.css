@@ -9,6 +9,7 @@
 .app__container{
   height: 90vh;
   width: 35%;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
